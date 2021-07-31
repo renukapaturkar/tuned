@@ -1,54 +1,27 @@
 import ReactPlayer from 'react-player';
 import {useParams} from 'react-router-dom';
-import axios from 'axios';
 import { useLikeContext } from '../../context/LikedVideoContext';
 import '../../css/videoPlayer.css';
 import {useVideoDetails} from '../../hooks/videos/useVideoDetails'; 
 import {useCustomPlaylistContext} from '../../context/CustomPlaylistContext';
-import PlaylistModal from './PlaylistModal.js';
- 
+import PlaylistModal from '../custom-playlists/PlaylistModal';
+import { likedVideosHandler } from '../../utils/likedVideosHandler';
+import { watchLaterPlaylistHandler } from '../../utils/watchLaterPlaylistHandler';
 
 
 function VideoPlayer () {
-    const {likedPlaylistId, LikesDispatch} = useLikeContext();
-    const {playlistModal, PlaylistDispatch} = useCustomPlaylistContext();
+    const {likedPlaylistId, likesvideos, LikesDispatch} = useLikeContext();
+    const {playlistModal, watchlaterId,watchlaterdata, PlaylistDispatch} = useCustomPlaylistContext();
     const {id} = useParams();
     const videodetails = useVideoDetails(id);
     
     
 
-    
-    const addToLikedVideosPlaylist = async(videodetails,likedPlaylistId, LikesDispatch) => {
-        console.log("line 16", likedPlaylistId)
-        if(likedPlaylistId === null){
-            const response = await axios.post('http://localhost:3000/likedvideos', 
-            {
-                LikedVideosArray: { _id: videodetails._id, LikedVideos: videodetails._id}
-            });
-            LikesDispatch({type: "FIND_LIKEDPLAYLIST_ID", payload: response.data.likedVideoData._id})
-            console.log(response.data.likedVideoData._id)
-            LikesDispatch({type: "ADD_TO_LIKEDVIDEOS", payload: response.data.likedVideoData.LikedVideosArray })
-        
-        }else {
-
-            const response = await axios.post(`http://localhost:3000/likedvideos/${likedPlaylistId}`,
-            {
-                LikedVideosArray: { _id: videodetails._id, LikedVideos: videodetails._id}
-            })
-            LikesDispatch({type: "ADD_TO_LIKEDVIDEOS", payload: response.data.likedVideoData.LikedVideosArray })
-        }
-    }
-
-
-
-
-
-
-    return (
+        return (
             <div>
-                {/* {
-                    playlistModal ? <div  class="back-drop"></div> : null
-                } */}
+                {
+                    playlistModal ? <div class="back-drop"></div> : null
+                }
             <div class="videoplayer-container">
                 
                 <div class="video-player">
@@ -68,10 +41,10 @@ function VideoPlayer () {
                     <div>
                     <span class="details">
                     <span>
-                    <ion-icon class="icon" name="thumbs-up-sharp" onClick={()=> addToLikedVideosPlaylist(videodetails, likedPlaylistId, LikesDispatch)}></ion-icon>
+                    <ion-icon class="icon" name="thumbs-up-sharp" onClick={()=> likedVideosHandler(videodetails, likesvideos,likedPlaylistId,LikesDispatch)}></ion-icon>
                     </span>
                     <span>
-                    <ion-icon class= "icon" name="time-sharp"></ion-icon>
+                    <ion-icon class= "icon" name="time-sharp" onClick={()=>watchLaterPlaylistHandler(videodetails, watchlaterdata,watchlaterId, PlaylistDispatch)}></ion-icon>
                     </span>
                     <span>
                     <ion-icon class="icon" name="list-sharp" onClick={()=>PlaylistDispatch({type: "SHOW_PLAYLIST_MODAL"})}></ion-icon>

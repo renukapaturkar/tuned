@@ -6,23 +6,22 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import { LikeContextProvider } from './context/LikedVideoContext';
 import { PrimaryProvider } from './context/PrimaryContext';
 import { CustomPlaylistProvider } from './context/CustomPlaylistContext';
+import { AuthProvider } from './context/AuthProvider';
 
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    
-      <PrimaryProvider>
-        <CustomPlaylistProvider>
-      <LikeContextProvider>
-      <App />
-      </LikeContextProvider>
-      </CustomPlaylistProvider>
-
-    </PrimaryProvider>
-
-  
+      <AuthProvider>
+        <PrimaryProvider>
+          <CustomPlaylistProvider>
+            <LikeContextProvider>
+              <App/>
+            </LikeContextProvider>
+          </CustomPlaylistProvider>
+        </PrimaryProvider>
+      </AuthProvider>
     </Router>
  
   </React.StrictMode>,

@@ -5,8 +5,12 @@ import {playlistReducer} from '../reducers/playlistReducer';
 const CustomPlaylistContext = createContext();
 
 const initialValue = {
+    watchlaterId : null, 
+    watchlaterdata: [], 
     playlistModal: false,
-    playlistData : []
+    playlistData : [],
+    createplaylistmodal : false,
+    customPlaylistData : []
 }
 
 export const CustomPlaylistProvider = ({children}) => {

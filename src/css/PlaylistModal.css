@@ -1,48 +1,47 @@
 .modal-wrapper {
-    background: white;
-    width: 20rem; 
-    max-width: 20rem;
-    margin: 4rem auto;
-    position: absolute;
-    top: 30%;
-    left: 40%;
-    backdrop-filter: opacity(50%);
-
-
+  background: white;
+  width: 20rem;
+  max-width: 20rem;
+  margin: 4rem auto;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  transition: 350ms;
 }
 
 .modal-header {
-    padding: 1rem;
-    display: flex; 
-    align-items: center;
-    justify-content: space-between;
-
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .modal-content {
-    padding: 1.5rem 1rem;
-}
-
-.modal-body {
-    margin-bottom: 1rem;
-
-}
-
-.modal-body p {
-    font-size: 1rem;
-    padding: 1rem;
-    margin: 1rem 0 2rem 0 ;
-}
-
-.modal-footer button {
-    display: block;
-    font-size: 1rem;
-    margin-left : auto;
-    padding: 0.5rem 1.8rem;
-    border: none;
-    outline: none;
-    cursor: pointer;
+  display:flex;
+  padding: 1rem;
+  justify-content: center;
 }
 
 
+.modal-content button {
+  display: block;
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+}
 
- 
+.btn-create {
+  padding: 0.5rem;
+
+}
+
+.modal-show {
+  display: block;
+}
+
+.modal-hide {
+  display: none;
+}
+
+.input {
+  padding: 0.5rem;
+}
