@@ -7,7 +7,7 @@ import '../../App.css';
 
 function VideoListing () {
     return(
-        <div class="container">
+        <div>
 
 <VideoCard/>
 </div>

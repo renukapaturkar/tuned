@@ -7,7 +7,7 @@ export const useVideoDetails = (id) => {
   const getDetails = async () => {
     try {
       const { data, status } = await axios.get(
-        `https://damp-escarpment-27928.herokuapp.com/videos/${id}`
+        `https://think-tunes-server.herokuapp.com/videos/${id}`
       );
 
       if (status === 200) {

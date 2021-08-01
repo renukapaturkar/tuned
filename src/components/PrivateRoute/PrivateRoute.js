@@ -5,6 +5,6 @@ export const PrivateRoute = ({path, ...props}) => {
     return token ? (
         <Route {...props} path={path}></Route>
     ) : (
-        <Navigate state={{from:path}} replace to="/"/>
+        <Navigate state={{from:path}} replace to="/login"/>
     )
 }

@@ -1,7 +1,10 @@
+import {Link} from 'react-router-dom';
+
 const AllPlaylists = () => {
     return(
-        <div>
-            <h1>All Playlists are here</h1>
+        
+        <div className="flex justify-center">
+            All Playlist
         </div>
     )
 }
