@@ -9,9 +9,6 @@ function NavBar() {
       </Link>
        
       <span className="flex m-4 px-16 text-md font-medium">
-          <Link className="my-2 text-gray-100 px-6" to="/allplaylists">
-            Playlists
-          </Link>
           <Link className="my-2 text-gray-100 px-6" to="/likedvideos">
             Liked Videos
           </Link>

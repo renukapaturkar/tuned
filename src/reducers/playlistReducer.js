@@ -22,12 +22,14 @@ export const playlistReducer = (state, action) => {
       console.log(action.payload)
       return {
         ...state,
-        watchlaterdata: [...action.payload]
+        watchlaterdata:action.payload,
       };
     case "REMOVE_FROM_WATCHLATER":
       return {
         ...state,
-        watchlaterdata: [...action.payload],
+        watchlaterdata: state.watchlaterdata.filter(
+          (item) => item._id !== action.payload
+        )
       };
 
     case "create_new_playlist":
@@ -35,11 +37,6 @@ export const playlistReducer = (state, action) => {
         ...state, 
         customplaylistdata: [...state.customplaylistdata, {name:action.payload, list: []}]
       }
-    case "GET_WATCHLATER_DATA": 
-    return {
-      ...state, 
-      watchlaterdata: [...action.payload]
-    }
     default:
       return state;
   }

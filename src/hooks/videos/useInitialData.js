@@ -8,7 +8,7 @@ export const useInitialData = () => {
   const getVideos = async () => {
     try {
       const response = await axios.get(
-        "https://tuned-api.renukapaturkar.repl.co/videos"
+        "https://think-tunes-server.herokuapp.com/videos"
       );
       console.log(response.data.videos);
       primaryDispatch({ type: "INITIAL_DATA", payload: response.data.videos });

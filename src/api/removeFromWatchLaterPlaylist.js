@@ -7,13 +7,16 @@ export const removeFromWatchLaterPlaylist = async (
 ) => {
   try {
     const response = await axios.delete(
-      `https://tuned-api.renukapaturkar.repl.co/watchlater/${watchlaterId}/${videodetails._id}`,
+      `https://think-tunes-server.herokuapp.com/watchlater/${watchlaterId}/${videodetails._id}`,
       { WatchLaterArray: { WatchLaterVideos: videodetails._id } }
     );
-    PlaylistDispatch({
-      type: "REMOVE_FROM_WATCHLATER",
-      payload: response.data.watchlaterdata.watchLaterArray,
-    });
+    if(response.status === 200){
+      PlaylistDispatch({
+        type: "REMOVE_FROM_WATCHLATER",
+        payload: response.data.watchlaterdata.watchLaterArray,
+      });
+    }
+
   } catch (error) {
     console.log(Error);
   } finally {

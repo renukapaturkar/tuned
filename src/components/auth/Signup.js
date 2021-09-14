@@ -22,7 +22,7 @@ export const Signup = () => {
     try {
       setErrorMessage("");
       const response = await axios.post(
-        "https://tuned-api.renukapaturkar.repl.co/signup",
+        "https://think-tunes-server.herokuapp.com/signup",
         {
           email: email,
           name: name,

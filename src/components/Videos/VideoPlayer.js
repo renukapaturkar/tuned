@@ -1,7 +1,6 @@
 import ReactPlayer from 'react-player';
 import {useParams} from 'react-router-dom';
 import { useLikeContext } from '../../context/LikedVideoContext';
-import '../../css/videoPlayer.css';
 import {useVideoDetails} from '../../hooks/videos/useVideoDetails'; 
 import {useCustomPlaylistContext} from '../../context/CustomPlaylistContext';
 import PlaylistModal from '../custom-playlists/PlaylistModal';
@@ -15,6 +14,7 @@ function VideoPlayer () {
     const {id} = useParams();
     const videodetails = useVideoDetails(id);
     console.log(likedPlaylistId, "likedPlaylistId video ");
+    console.log(videodetails, "videodetails")
 
         return (
             <div>

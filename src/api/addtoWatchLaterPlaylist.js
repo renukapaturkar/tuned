@@ -7,7 +7,7 @@ export const addToWatchLaterPlaylist = async (
 ) => {
   try {
     if (watchlaterId === null) {
-      const response = await axios.post("https://tuned-api.renukapaturkar.repl.co/watchlater", {
+      const response = await axios.post("https://think-tunes-server.herokuapp.com/watchlater", {
         WatchLaterArray: {_id: videodetails._id}
       });
       if (response.status === 200) {
@@ -23,7 +23,7 @@ export const addToWatchLaterPlaylist = async (
     } else {
       console.log("else block");
       const response = await axios.post(
-        `https://tuned-api.renukapaturkar.repl.co/watchlater/${watchlaterId}`,
+        `https://think-tunes-server.herokuapp.com/watchlater/${watchlaterId}`,
         {
           WatchLaterArray: {_id: videodetails._id}
         }

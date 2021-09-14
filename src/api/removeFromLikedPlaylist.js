@@ -9,7 +9,7 @@ export const removeFromLikedPlaylist = async (
     console.log(videodetails, "videodetails")
     console.log(likedPlaylistId, "likedPlaylistId")
     const response = await axios.delete(
-      `https://tuned-api.renukapaturkar.repl.co/likedvideos/${likedPlaylistId}/${videodetails._id}`,
+      `https://think-tunes-server.herokuapp.com/likedvideos/${likedPlaylistId}/${videodetails._id}`,
 
       { LikedVideosArray: {_id: videodetails._id } }
     );

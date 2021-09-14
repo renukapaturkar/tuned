@@ -27,7 +27,7 @@ export const AuthProvider = ({children}) => {
 
     const loginWithUserCredentials = async(email, password)=>{
         try{
-            const {status, data: {token, userData}} = await axios.post("https://tuned-api.renukapaturkar.repl.co/login", 
+            const {status, data: {token, userData}} = await axios.post("https://think-tunes-server.herokuapp.com/login", 
             {
                 email: email,
                 password: password,

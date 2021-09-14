@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; 
 import { useCustomPlaylistContext } from '../../context/CustomPlaylistContext';
-import '../../css/PlaylistModal.css';
+
 
 
 export const CreatePlaylist = ({createplaylistmodal}) => {

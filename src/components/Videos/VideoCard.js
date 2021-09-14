@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react';
-import '../../css/VideoCard.css';
 import {Link} from 'react-router-dom';
 import {PrimaryContext} from '../../context/PrimaryContext.js';
 import {useInitialData} from '../../hooks/videos/useInitialData';
@@ -9,20 +8,22 @@ import {useInitialData} from '../../hooks/videos/useInitialData';
 function VideoCard() {
     const {videos} = useContext(PrimaryContext);
     useInitialData();
+
+    console.log(videos, "videos")
     
     return(
-        <div className="flex flex-wrap justify-center p-4 m-2">
+        <div className="flex w-full md:flex-wrap justify-center p-4">
             {
                 videos.map((item)=> {
                     
                     return (
-                        <div className="flex flex-col w-1/4 border-none space-between px-2">
+                        <div className="flex flex-col w-1/4 space-between p-2 m-2">
                            <Link className="w-full items-center" to={`/${item._id}`}> 
                             <img src={`http://i3.ytimg.com/vi/${item.video_id}/maxresdefault.jpg` } alt="img"/>
                             </Link>
-                                <div className="flex flex-col ">
-                                <small className=" p-2 text-sm font-italic">{item.category}</small>
-                            <div className="font-semibold text-lg" >{item.title}</div>
+                                <div className="flex flex-col">
+                                <small className="p-1 text-sm font-italic">{item.category}</small>
+                            <h1 className="font-semibold text-md">{item.title}</h1>
                                     
                         </div>
                                 </div>
