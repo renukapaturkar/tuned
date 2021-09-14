@@ -1,6 +1,6 @@
-import {Link} from 'react-router-dom';
-import {useState} from 'react'
-import axios from 'axios'
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
 export const Signup = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -29,7 +29,6 @@ export const Signup = () => {
           password: password,
         }
       );
-      console.log(response, "sign up response");
       if (response.status === 200) {
         setValues({
           email: "",
@@ -37,14 +36,12 @@ export const Signup = () => {
           password: "",
           confirmPassword: "",
         });
-        
       }
     } catch (error) {
       console.log(error);
       setErrorMessage(
         "Something went wrong,Sign up was unsuccessful. Please try again!"
       );
-      
     }
   };
   const passwordMatch =
@@ -58,7 +55,7 @@ export const Signup = () => {
   );
 
   const submitHandler = (e) => {
-    const { email, name, password, confirmPassword } = values;
+    const { email, name, password } = values;
     e.preventDefault();
     if (checkUserInput) {
       if (!isPasswordValid) {
@@ -87,58 +84,68 @@ export const Signup = () => {
     }
   };
 
-    return(
-        <div className="flex flex-col items-center">
-        <div className="flex flex-col w-1/3 h-auto items-center p-8 border shadow-lg font-sans">
-              <div className="text-3xl">Think Tunes</div> 
+  return (
+    <div className="flex flex-col items-center">
+      <div className="flex flex-col w-1/3 h-auto items-center p-8 border shadow-lg font-sans">
+        <div className="text-3xl">Think Tunes</div>
 
-              <form className="flex flex-col w-5/6 h-auto p-8 m-4" onSubmit={submitHandler}>
+        <form
+          className="flex flex-col w-5/6 h-auto p-8 m-4"
+          onSubmit={submitHandler}
+        >
+          <input
+            className="w-full h-14 border shadow-md p-2 m-4"
+            placeholder="Email address"
+            type="email"
+            name="email"
+            value={values.email}
+            onChange={onChangeHandler}
+            required
+          />
 
-                <input 
-                className="w-full h-14 border shadow-md p-2 m-4"
-                placeholder="Email address"
-                type="email"
-                name="email"
-                value={values.email}
-                onChange={onChangeHandler}
-                required/>
+          <input
+            className="w-full h-14 border shadow-md p-2 m-4"
+            placeholder="Name"
+            type="name"
+            name="name"
+            value={values.name}
+            onChange={onChangeHandler}
+            required
+          />
 
-                <input 
-                className="w-full h-14 border shadow-md p-2 m-4"
-                placeholder="Name"
-                type="name"
-                name="name"
-                value={values.name}
-                onChange={onChangeHandler}
-                required/>
+          <input
+            className="w-full h-14 border shadow-md p-2 m-4"
+            placeholder="Password"
+            type="password"
+            name="password"
+            value={values.password}
+            onChange={onChangeHandler}
+            required
+          />
 
+          <input
+            className="w-full h-14 border shadow-md p-2 m-4"
+            placeholder="Confirm Password"
+            type="password"
+            name="confirmPassword"
+            value={values.confirmPassword}
+            onChange={onChangeHandler}
+            required
+          />
 
-                <input 
-                className="w-full h-14 border shadow-md p-2 m-4"
-                placeholder="Password"
-                type="password"
-                name="password"
-                value={values.password}
-                onChange={onChangeHandler}
-                required/>
+          <small className="p-1 text-red-600">{showError()}</small>
 
-                <input 
-                className="w-full h-14 border shadow-md p-2 m-4"
-                placeholder="Confirm Password"
-                type="password"
-                name="confirmPassword"
-                value={values.confirmPassword}
-                onChange={onChangeHandler}
-                required/>
-
-                <small className="p-1 text-red-600">{showError()}</small>
-
-                <button className="p-4 w-40  border bg-gray-800 text-white text-lg text-center self-center rounded-md font-semibold">Sign Up</button>
-              </form>
-              <small className="text-base">Already have an account? <span className="text-base text-purple-700 underline"><Link to="/login">Login</Link></span></small>
-
-
-        </div>
+          <button className="p-4 w-40  border bg-gray-800 text-white text-lg text-center self-center rounded-md font-semibold">
+            Sign Up
+          </button>
+        </form>
+        <small className="text-base">
+          Already have an account?{" "}
+          <span className="text-base text-purple-700 underline">
+            <Link to="/login">Login</Link>
+          </span>
+        </small>
+      </div>
     </div>
-    )
-}
+  );
+};

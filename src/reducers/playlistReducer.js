@@ -12,31 +12,32 @@ export const playlistReducer = (state, action) => {
       };
 
     case "FIND_WATCH_LATER_ID":
-      console.log(action.payload);
       return {
         ...state,
         watchlaterId: action.payload,
       };
 
     case "ADD_TO_WATCH_LATER":
-      console.log(action.payload)
       return {
         ...state,
-        watchlaterdata:action.payload,
+        watchlaterdata: action.payload,
       };
     case "REMOVE_FROM_WATCHLATER":
       return {
         ...state,
         watchlaterdata: state.watchlaterdata.filter(
           (item) => item._id !== action.payload
-        )
+        ),
       };
 
     case "create_new_playlist":
       return {
-        ...state, 
-        customplaylistdata: [...state.customplaylistdata, {name:action.payload, list: []}]
-      }
+        ...state,
+        customplaylistdata: [
+          ...state.customplaylistdata,
+          { name: action.payload, list: [] },
+        ],
+      };
     default:
       return state;
   }

@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import VideoPlayer from "./components/Videos/VideoPlayer.js";
 import LikedVideos from "./components/Videos/LikedVideos.js";
 import WatchLater from "./components/Videos/WatchLater";
-import AllPlaylists from "./components/Videos/AllPlaylists";
 import { Login } from "./components/auth/Login";
 import { Signup } from "./components/auth/Signup";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
@@ -15,22 +14,21 @@ import { useWatchlistData } from "./hooks/useWatchlistData";
 import { useVideoDetails } from "./hooks/videos/useVideoDetails";
 
 function App() {
-  useInitialData()
-  useVideoDetails()
-  useLikedPlaylistData()
-  useWatchlistData()
+  useInitialData();
+  useVideoDetails();
+  useLikedPlaylistData();
+  useWatchlistData();
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       <Routes>
         <Route path="/" element={<VideoListing />} />
         <Route path=":id" element={<VideoPlayer />} />
         <PrivateRoute path="/likedvideos" element={<LikedVideos />} />
         <PrivateRoute path="/watchlater" element={<WatchLater />} />
-        {/* <PrivateRoute path="/allplaylists" element={<AllPlaylists />} /> */}
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/signup" element={<Signup/>}/>
-        <PrivateRoute path="/userprofile" element={<UserProfile/>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <PrivateRoute path="/userprofile" element={<UserProfile />} />
       </Routes>
     </div>
   );

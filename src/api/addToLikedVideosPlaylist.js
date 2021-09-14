@@ -13,7 +13,7 @@ export const addToLikedVideosPlaylist = async (
           LikedVideosArray: { _id: videodetails._id },
         }
       );
-      if(response.status === 200){
+      if (response.status === 200) {
         LikesDispatch({
           type: "FIND_LIKEDPLAYLIST_ID",
           payload: response.data.likedVideoData._id,
@@ -22,12 +22,8 @@ export const addToLikedVideosPlaylist = async (
           type: "ADD_TO_LIKEDVIDEOS",
           payload: response?.data.likedVideoData.LikedVideosArray,
         });
-
       }
-
     } else {
-      console.log(likedPlaylistId, "likedPlaylistId in a  else block ------------------------------------------------------------")
-
       const response = await axios.post(
         `https://think-tunes-server.herokuapp.com/likedvideos/${likedPlaylistId}`,
         {
@@ -36,17 +32,14 @@ export const addToLikedVideosPlaylist = async (
           },
         }
       );
-        if(response.status === 200){
-          LikesDispatch({
-            type: "ADD_TO_LIKEDVIDEOS",
-            payload: response.data.likedVideoData.LikedVideosArray,
-          });
-        }
-
+      if (response.status === 200) {
+        LikesDispatch({
+          type: "ADD_TO_LIKEDVIDEOS",
+          payload: response.data.likedVideoData.LikedVideosArray,
+        });
+      }
     }
   } catch (error) {
     console.log(error);
-  } finally {
-    console.log("liked list is done!");
   }
 };

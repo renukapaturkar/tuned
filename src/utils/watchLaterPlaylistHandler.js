@@ -7,7 +7,6 @@ export const watchLaterPlaylistHandler = (
   watchlaterId,
   PlaylistDispatch
 ) => {
-  console.log(watchlaterdata, "watchlaterdata")
   if (
     watchlaterdata.some((video) => video._id._id === videodetails._id) === false
   ) {

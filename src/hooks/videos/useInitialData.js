@@ -10,7 +10,6 @@ export const useInitialData = () => {
       const response = await axios.get(
         "https://think-tunes-server.herokuapp.com/videos"
       );
-      console.log(response.data.videos);
       primaryDispatch({ type: "INITIAL_DATA", payload: response.data.videos });
     } catch (error) {
       console.log(error);

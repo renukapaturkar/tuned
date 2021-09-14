@@ -1,52 +1,49 @@
-import React, { useState } from 'react'; 
-import { useCustomPlaylistContext } from '../../context/CustomPlaylistContext';
+import React, { useState } from "react";
+import { useCustomPlaylistContext } from "../../context/CustomPlaylistContext";
 
+export const CreatePlaylist = ({ createplaylistmodal }) => {
+  const [text, setText] = useState("");
+  const [newPlaylist, setNewPlaylist] = useState([]);
+  const { PlaylistDispatch } = useCustomPlaylistContext();
+  const onChangeHandler = (e) => {
+    setText(e.target.value);
+  };
 
+  const createNewPlaylistHandler = () => {
+    setNewPlaylist([...newPlaylist, { name: text, list: [] }]);
+  };
 
-export const CreatePlaylist = ({createplaylistmodal}) => {
-    const [text, setText] = useState("");
-    const [newPlaylist, setNewPlaylist] = useState([]);
-    const { PlaylistDispatch} = useCustomPlaylistContext();
-    const onChangeHandler = (e) => {
-        setText(e.target.value)
-    }
+  //dispatch({type: "create_new_playlist", payload: name})
 
-    const createNewPlaylistHandler = () => {
-        setNewPlaylist([
-            ...newPlaylist, {name: text, list: []}
-        ])
-    }
+  const playlistHandler = (e) => {
+    console.log(e.target.checked);
+  };
 
-    //dispatch({type: "create_new_playlist", payload: name})
+  return (
+    <div>
+      <span>
+        <input
+          className="input"
+          placeholder="Enter Playlist Name"
+          type="text"
+          onChange={onChangeHandler}
+        />
+        <button
+          className="btn-create"
+          onClick={() => createNewPlaylistHandler()}
+        >
+          Create
+        </button>
+      </span>
 
-    const playlistHandler = (e) => {
-        console.log(e.target.checked)
-    }
-    
-    
-    return(
-        <div>
-            <span>
-                <input className="input" placeholder="Enter Playlist Name" type="text" onChange={onChangeHandler}/>
-                <button className="btn-create" onClick={()=>createNewPlaylistHandler()}>Create</button>
-            </span>
-            
-            <div className="modal-body">
-            {
-                newPlaylist.map((item)=> (
-                    <div>
-                    <input type="checkbox" onChange={(e)=>playlistHandler(e)}/>
-                    <span>{item.name}</span>
-                    </div>
-                    
-    ))
-            } 
-
-            </div>
-
-
-
-
-        </div>
-    )
-}
+      <div className="modal-body">
+        {newPlaylist.map((item) => (
+          <div>
+            <input type="checkbox" onChange={(e) => playlistHandler(e)} />
+            <span>{item.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};

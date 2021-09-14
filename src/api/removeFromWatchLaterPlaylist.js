@@ -10,13 +10,12 @@ export const removeFromWatchLaterPlaylist = async (
       `https://think-tunes-server.herokuapp.com/watchlater/${watchlaterId}/${videodetails._id}`,
       { WatchLaterArray: { WatchLaterVideos: videodetails._id } }
     );
-    if(response.status === 200){
+    if (response.status === 200) {
       PlaylistDispatch({
         type: "REMOVE_FROM_WATCHLATER",
         payload: response.data.watchlaterdata.watchLaterArray,
       });
     }
-
   } catch (error) {
     console.log(Error);
   } finally {
