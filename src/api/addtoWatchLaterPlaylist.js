@@ -7,13 +7,9 @@ export const addToWatchLaterPlaylist = async (
 ) => {
   try {
     if (watchlaterId === null) {
-      const response = await axios.post("http://localhost:3000/watchlater", {
-        WatchLaterArray: {
-          _id: videodetails._id,
-          WatchLaterVideos: videodetails._id,
-        },
+      const response = await axios.post("https://tuned-api.renukapaturkar.repl.co/watchlater", {
+        WatchLaterArray: {_id: videodetails._id}
       });
-
       if (response.status === 200) {
         PlaylistDispatch({
           type: "FIND_WATCH_LATER_ID",
@@ -27,14 +23,12 @@ export const addToWatchLaterPlaylist = async (
     } else {
       console.log("else block");
       const response = await axios.post(
-        `http://localhost:3000/watchlater/${watchlaterId}`,
+        `https://tuned-api.renukapaturkar.repl.co/watchlater/${watchlaterId}`,
         {
-          WatchLaterArray: {
-            _id: videodetails._id,
-            WatchLaterVideos: videodetails._id,
-          },
+          WatchLaterArray: {_id: videodetails._id}
         }
       );
+      console.log(response , "api/addto watch later => else block")
       if (response.status === 200) {
         PlaylistDispatch({
           type: "ADD_TO_WATCH_LATER",

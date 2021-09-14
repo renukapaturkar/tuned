@@ -7,7 +7,7 @@ export const removeFromWatchLaterPlaylist = async (
 ) => {
   try {
     const response = await axios.delete(
-      `http://localhost:3000/${watchlaterId}/${videodetails._id}`,
+      `https://tuned-api.renukapaturkar.repl.co/watchlater/${watchlaterId}/${videodetails._id}`,
       { WatchLaterArray: { WatchLaterVideos: videodetails._id } }
     );
     PlaylistDispatch({

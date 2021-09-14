@@ -6,18 +6,24 @@ export const removeFromLikedPlaylist = async (
   LikesDispatch
 ) => {
   try {
+    console.log(videodetails, "videodetails")
+    console.log(likedPlaylistId, "likedPlaylistId")
     const response = await axios.delete(
-      `http://localhost:3000/likedvideos/${likedPlaylistId}/${videodetails._id}`,
+      `https://tuned-api.renukapaturkar.repl.co/likedvideos/${likedPlaylistId}/${videodetails._id}`,
 
-      { LikedVideosArray: { LikedVideos: videodetails._id } }
+      { LikedVideosArray: {_id: videodetails._id } }
     );
-    LikesDispatch({
-      type: "REMOVE_FROM_LIKEDLIST",
-      payload: response.data.likedVideosData.LikedVideosArray,
-    });
+    console.log(response, "response to remove from list")
+    if(response.status === 200){
+      LikesDispatch({
+        type: "REMOVE_FROM_LIKEDLIST",
+        payload: response.data.likedVideosData.LikedVideosArray,
+      });
+    }
+
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   } finally {
-    console.log("done!");
+    console.log("removed from the liked list ");
   }
 };

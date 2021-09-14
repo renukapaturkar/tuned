@@ -1,4 +1,3 @@
-import axios from "axios";
 import { addToWatchLaterPlaylist } from "../api/addtoWatchLaterPlaylist";
 import { removeFromWatchLaterPlaylist } from "../api/removeFromWatchLaterPlaylist.js";
 
@@ -8,8 +7,9 @@ export const watchLaterPlaylistHandler = (
   watchlaterId,
   PlaylistDispatch
 ) => {
+  console.log(watchlaterdata, "watchlaterdata")
   if (
-    watchlaterdata.some((video) => video._id === videodetails._id) === false
+    watchlaterdata.some((video) => video._id._id === videodetails._id) === false
   ) {
     addToWatchLaterPlaylist(videodetails, watchlaterId, PlaylistDispatch);
   } else {

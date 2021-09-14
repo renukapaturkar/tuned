@@ -18,8 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<VideoListing />} />
         <Route path=":id" element={<VideoPlayer />} />
-        {/* <Route path="/likedvideos" element={<LikedVideos />} />
-        <Route path="/watchlater" element={<WatchLater />} /> */}
+        <Route path="/likedvideos" element={<LikedVideos />} />
+        <Route path="/watchlater" element={<WatchLater />} />
         <PrivateRoute path="/allplaylists" element={<AllPlaylists />} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>

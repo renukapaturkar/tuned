@@ -6,31 +6,34 @@ export const addToLikedVideosPlaylist = async (
   LikesDispatch
 ) => {
   try {
-    if (likedPlaylistId === null) {
-      const response = await axios.post("http://localhost:3000/likedvideos", {
-        LikedVideosArray: {
-          _id: videodetails._id,
-          LikedVideos: videodetails._id,
-        },
-      });
+    if (likedPlaylistId === "") {
+      const response = await axios.post(
+        "https://tuned-api.renukapaturkar.repl.co/likedvideos",
+        {
+          LikedVideosArray: { _id: videodetails._id },
+        }
+      );
+
       LikesDispatch({
         type: "FIND_LIKEDPLAYLIST_ID",
         payload: response.data.likedVideoData._id,
       });
       LikesDispatch({
         type: "ADD_TO_LIKEDVIDEOS",
-        payload: response.data.likedVideoData.LikedVideosArray,
+        payload: response?.data.likedVideoData.LikedVideosArray,
       });
     } else {
+      console.log(likedPlaylistId, "likedPlaylistId in a  else block")
+
       const response = await axios.post(
-        `http://localhost:3000/likedvideos/${likedPlaylistId}`,
+        `https://tuned-api.renukapaturkar.repl.co/likedvideos/${likedPlaylistId}`,
         {
           LikedVideosArray: {
             _id: videodetails._id,
-            LikedVideos: videodetails._id,
           },
         }
       );
+
       LikesDispatch({
         type: "ADD_TO_LIKEDVIDEOS",
         payload: response.data.likedVideoData.LikedVideosArray,

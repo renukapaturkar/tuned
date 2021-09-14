@@ -7,7 +7,15 @@ export const likeListReducer = (state, action) => {
         likedPlaylistId: action.payload,
       };
 
+    case "GET_LIKEDVIDEOS":
+      console.log(action.payload);
+      return {
+        ...state,
+        likesvideos: [...action.payload],
+      };
+
     case "ADD_TO_LIKEDVIDEOS":
+      console.log(action.payload, "likesVideos payload");
       return {
         ...state,
         likesvideos: [...action.payload],
@@ -18,6 +26,7 @@ export const likeListReducer = (state, action) => {
         ...state,
         likesvideos: [...action.payload],
       };
+      
     default:
       return state;
   }

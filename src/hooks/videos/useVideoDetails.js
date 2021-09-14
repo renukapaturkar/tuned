@@ -7,7 +7,7 @@ export const useVideoDetails = (id) => {
   const getDetails = async () => {
     try {
       const { data, status } = await axios.get(
-        `https://think-tunes-server.herokuapp.com/videos/${id}`
+        `https://tuned-api.renukapaturkar.repl.co/videos/${id}`
       );
 
       if (status === 200) {

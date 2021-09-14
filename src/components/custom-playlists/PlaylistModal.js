@@ -1,6 +1,6 @@
 import {useCustomPlaylistContext} from '../../context/CustomPlaylistContext.js';
 import '../../css/PlaylistModal.css';
-import { CreatePlaylist } from '../sidebar/CreatePlaylist.js';
+import { CreatePlaylist } from './CreatePlaylist.js';
 import * as AiIcons from 'react-icons/ai';
 
 const PlaylistModal = ({playlistModal}) => {

@@ -1,21 +1,13 @@
-import React from 'react';
-import VideoCard from './VideoCard';
-import '../../App.css';
+import React from "react";
+import VideoCard from "./VideoCard";
+import "../../App.css";
 
+function VideoListing() {
+  return (
 
+      <VideoCard />
 
-
-function VideoListing () {
-    return(
-        <div>
-
-<VideoCard/>
-</div>
-
-        
-
-
-    )
+  );
 }
 
 export default VideoListing;

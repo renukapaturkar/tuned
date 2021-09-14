@@ -14,8 +14,7 @@ function VideoPlayer () {
     const {playlistModal, watchlaterId,watchlaterdata, PlaylistDispatch} = useCustomPlaylistContext();
     const {id} = useParams();
     const videodetails = useVideoDetails(id);
-    console.log(videodetails, "videodetails")
-    
+    console.log(likedPlaylistId, "likedPlaylistId video ");
 
         return (
             <div>
@@ -45,16 +44,13 @@ function VideoPlayer () {
                     <div className="w-1/5 p-4 h-auto bg-gray-200 justify-center">
                     
                     <span className="w-96 h-96 text-4xl p-3 font-semibold">
-                    {/* <ion-icon class="icon" name="thumbs-up-sharp" ></ion-icon> */}
                     <ion-icon name="heart-outline" onClick={()=> likedVideosHandler(videodetails, likesvideos,likedPlaylistId,LikesDispatch)}></ion-icon>
                     </span>
                     <span className="w-96 h-96 text-4xl p-3 font-semibold">
-                    {/* <ion-icon class= "icon" name="time-sharp" onClick={()=>watchLaterPlaylistHandler(videodetails, watchlaterdata,watchlaterId, PlaylistDispatch)}></ion-icon> */}
-                    <ion-icon name="time-outline"></ion-icon>
+                    <ion-icon name="time-outline" onClick={()=>watchLaterPlaylistHandler(videodetails, watchlaterdata,watchlaterId, PlaylistDispatch)}></ion-icon>
                     </span>
                     <span className="w-96 h-96 text-4xl p-3 font-semibold">
-                    {/* <ion-icon class="icon" name="list-sharp" onClick={()=>PlaylistDispatch({type: "SHOW_PLAYLIST_MODAL"})}></ion-icon> */}
-                    <ion-icon name="list-outline"></ion-icon>
+                    <ion-icon name="list-outline"  onClick={()=>PlaylistDispatch({type: "SHOW_PLAYLIST_MODAL"})}></ion-icon>
                     </span>
                         
                     <PlaylistModal playlistModal={playlistModal}/>

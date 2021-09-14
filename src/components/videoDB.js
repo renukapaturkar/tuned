@@ -26,7 +26,7 @@ const videoDB = [
   {
     "video_id" : "pL3lCNCffgg", 
     "title": "The BEST Way to Read - Kindle vs iPad vs Books vs Audiobooks", 
-    "category": "others",
+    "category": "Author's bookshelf",
     "description": "In this video I'll go over the 4 ways I consume books in an attempt to figure out which is the best in terms of cost, convenience, aesthetics, note-taking and durability."
   },
   {
