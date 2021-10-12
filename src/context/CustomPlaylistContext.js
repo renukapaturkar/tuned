@@ -7,7 +7,7 @@ const initialValue = {
   watchlaterId: null,
   watchlaterdata: [],
   playlistModal: false,
-  playlistData: [],
+  playlists: [],
   createplaylistmodal: false,
   customPlaylistData: [],
 };

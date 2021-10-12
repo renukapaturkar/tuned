@@ -1,0 +1,97 @@
+.navbar {
+    background-color:#111827;
+    color:#F3F4F6;
+    height:4rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    
+   
+}
+.logo {
+    background-color:#111827;
+    font-size: 2.3rem;
+    font-family: 'Allura', cursive;
+    color:#F3F4F6;
+    padding-top: 1rem;
+    padding-left: 2.5rem;
+
+}
+
+
+.menu-bars {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 2rem;
+    background: none;
+}
+
+.nav-menu {
+    background-color: white;
+    width: 15.8rem;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 4rem;
+    left:0;
+    transition: 850ms;
+    z-index: 1;
+    float: left;
+
+}
+
+ .nav-menu.active {
+     left: -100%;
+     transition: 350ms;
+     
+
+ }
+
+ .nav-text {
+     display: flex;
+     justify-content: start;
+     align-items: center;
+     padding: 0;
+     list-style: none;
+     height: 3.5rem;
+
+ }
+
+ .nav-text a {
+     text-decoration: none;
+     color: #111827;
+     font-size: 1rem;
+     width:95%;
+     height: 100%;
+     display: flex;
+     align-items: center;
+     padding: 0 1rem;
+     border-radius: 0.2rem;
+
+ }
+
+ .nav-text a:hover {
+     background-color: #D1D5DB;
+ }
+
+ .nav-menu-items {
+     width: 100%;
+
+ }
+
+ .navbar-toggle {
+     width:100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+
+
+ }
+
+ span {
+     margin-left: 0.7rem;
+     font-size: 1.1rem;
+ }
+
